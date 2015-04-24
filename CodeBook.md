@@ -57,4 +57,22 @@ Notes:
 - Each feature vector is a row on the text file.
 
 
-## Data transformations 
+## Data transformation using data_analysis.R
+
+* loads the values in the features file into a data frame (only second column with values)
+* creates a vector that maps the features that have mean or std in them using grepl called our_features
+* reads the activity labels into data frames (only second column with values)
+* loads the training data, labels and subjects into data frames
+* subsets the train data to limit it to those referred to in our_features
+* using cbind the merge these three data frames into one 
+* assign labels to the columns in train_labels to activitynamne and activityid
+* loads the test data, labels and subjects into data frames
+* subsets the test data to limit it to those referred to in our_features
+* using cbind the merge these three data frames into one
+* assign labels to the columns in test_labels to activitynamne and activityid
+* merge the training and testing data frames into one using rbind
+* use aggregate to show the mean of the values for each activity and subject in a new tidy data frame
+* clean up the headers for this dataframe so they are in lower case and more readable
+* clean up the activityname column so the activities are in lowercase and remove "_"
+* sort this data frame by subjectid and activity name
+* write the file to all_tidy_data.txt
